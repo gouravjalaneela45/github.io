@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Information Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to My Homepage</h1>
+        <div class="form-card">
+            <h2>Personal Info</h2>
+            <form id="personalInfoForm" onsubmit="return validateForm(event)">
+                <div class="form-grid">
+                    <!-- Left Column -->
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" pattern="[A-Za-z]+" required>
+                            <span class="error-message">Only alphabetic characters allowed</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="initial">M. Initial:</label>
+                            <input type="text" id="initial" name="initial" pattern="[A-Za-z]+" maxlength="1">
+                            <span class="error-message">Only alphabetic characters allowed</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastname">Last Name:</label>
+                            <input type="text" id="lastname" name="lastname" pattern="[A-Za-z]+" required>
+                            <span class="error-message">Only alphabetic characters allowed</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="country">I am from:</label>
+                            <select id="country" name="country" required>
+                                <option value="" disabled selected>Select your country</option>
+                                <!-- Countries will be populated via JavaScript -->
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="matriculation">Matriculation:</label>
+                            <input type="number" id="matriculation" name="matriculation" pattern="[0-9]*" inputmode="numeric" min="0" required>
+                            <span class="error-message">Please enter only numbers</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="semester">Semester:</label>
+                            <select id="semester" name="semester" required>
+                                <option value="" disabled selected>Select semester</option>
+                                <option value="winter">Winter Semester</option>
+                                <option value="summer">Summer Semester</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="program">Program:</label>
+                            <select id="program" name="program" required>
+                                <option value="" disabled selected>Select program</option>
+                                <option value="ai">Big Data and Artificial Intelligence</option>
+                                <option value="cl">Creative Leadership</option>
+                                <option value="cs">Cyber Security</option>
+                                <option value="dm">Digital Supply Chain Management</option>
+                                <option value="enn">Entrepreneurship and Intrapreneurship</option>
+                                <option value="film">Film, Television and Digital Narratives</option>
+                                <option value="4.0">Industry 4.0: Automation, Robotics & 3D Manufacturing</option>
+                                <option value="im">International Management</option>
+                                <option value="mob">Mobility and Automotive Industry</option>
+                                <option value="photo">Photography</option>
+                                <option value="rnew">Renewable Energy, Water and Waste Management</option>
+                                <option value="smart">Smart Building Technologies</option>
+                                <option value="sc">Social Design & Sustainable Innovation</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="startDate">Started in:</label>
+                            <input type="date" id="startDate" name="startDate" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <span class="error-message">Please enter a valid email address</span>
+                </div>
+
+                <div class="form-section">
+                    <p>I have heard about this graduate program from:</p>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="media" name="heard_from" value="media">
+                            <label for="media">Media</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="ad" name="heard_from" value="ad">
+                            <label for="ad">Ad</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="agency" name="heard_from" value="agency">
+                            <label for="agency">Agency</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="other" name="heard_from" value="other">
+                            <label for="other">Other</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <p>When I finish my study, I will:</p>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="return" name="future_plan" value="return">
+                            <label for="return">Return to my country</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="work" name="future_plan" value="work">
+                            <label for="work">Find a job in Europe</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="training" name="future_plan" value="training">
+                            <label for="training">Do the practical training and then decide</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="feedback">Feedback for the course:</label>
+                    <textarea id="feedback" name="feedback" rows="6" required></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">Submit Info</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- SDLC Questions Section -->
+        <div class="content-card">
+            <h2>SDLC Methodologies</h2>
+            <p class="intro-text">
+                Let me share my thoughts on Software Development Life Cycle (SDLC) methodologies! While exploring 
+                <a href="https://www.geeksforgeeks.org/software-development-life-cycle-sdlc/" target="_blank">different SDLC approaches</a>, 
+                I've discovered some fascinating methods that really stand out. Through my journey in software development, 
+                I've found that certain methodologies work better in different situations. Here's my personal take on the 
+                ones I find most interesting and practical, along with real-world examples from my experience:
+            </p>
+
+            <div class="question-section">
+                <div class="question-item">
+                    <label for="methodology-a">A) Waterfall Model - The Sequential Approach:</label>
+                    <textarea id="methodology-a" rows="4" class="methodology-textarea">According to my opinion, the Waterfall Model is most ideal for those projects that have static and clearly defined requirements. Since it is logically sequential, once one phase is done, the next starts making it well organized and easier to manage. But I still feel the system has somewhat rigidity, especially during some unanticipated changes that may affect developments.</textarea>
+                </div>
+
+                <div class="question-item">
+                    <label for="methodology-b">B) Agile - The Flexible Approach:</label>
+                    <textarea id="methodology-b" rows="4" class="methodology-textarea">Agile, in my perception, stands tall because of its flexibility, i.e., breaking a project into parts and regular feedback and adjustments done. This seems so useful for projects being revised as needed over time. Further, it encourages teamwork and continuous improvement in my opinion efforts to get the best results possible.</textarea>
+                </div>
+
+                <div class="question-item">
+                    <label for="methodology-c">C) RAD (Rapid Application Development) - The Speed-Driven Approach:</label>
+                    <textarea id="methodology-c" rows="4" class="methodology-textarea">Rapid Application Development (RAD), in my perception, stands out due to its focus on speed and efficiency, emphasizing quick iterations and user feedback. This approach is particularly useful for projects that require rapid delivery and evolving requirements. By prioritizing prototype development and iterative testing, RAD allows teams to adapt quickly to user needs and changes, ensuring the final product is aligned with expectations. Moreover, it encourages collaborative effort and constant refinement, making it ideal for dynamic environments where time-to-market is crucial.</textarea>
+                </div>
+
+                <div class="question-item">
+                    <label for="methodology-d">D) Incremental Model - The Progressive Approach:</label>
+                    <textarea id="methodology-d" rows="4" class="methodology-textarea">Incremental Development, in my perception, is notable for its systematic approach of breaking a project into smaller, manageable increments that are developed and tested individually. This method allows for early detection and correction of issues, making it particularly useful for complex projects with evolving requirements. By delivering functional parts of the system progressively, it ensures that feedback can be integrated continuously, enhancing the overall quality of the product. Additionally, it promotes steady progress and allows teams to adjust priorities and features based on real-time insights, fostering a flexible and adaptive development environment.</textarea>
+                </div>
+            </div>
+        </div>
+
+        <!---> Agile Methods Section -->
+        <div class="content-card">
+            <h2>Agile Methodologies</h2>
+            <p class="intro-text">
+                Based on my experience and research in software development, I find that 
+                <a href="https://www.tutorialspoint.com/sdlc/sdlc_agile_model.htm" target="_blank">Agile methodologies</a> 
+                offer particularly effective approaches to modern software development. While each SDLC methodology has its merits, 
+                I've found several Agile frameworks especially valuable for their adaptability and efficiency. Here are my insights 
+                on some key Agile methods that I believe are particularly impactful:
+            </p>
+
+            <div class="question-section">
+                <div class="question-item">
+                    <label for="agile-a">A) Scrum - The Collaborative Framework:</label>
+                    <textarea id="agile-a" rows="4" class="methodology-textarea">In my understanding, Scrum excels at fostering team collaboration through its structured yet flexible approach. The framework breaks down work into focused sprints (typically 2-4 weeks), incorporating daily stand-up meetings that enhance communication and accountability. What I particularly appreciate about Scrum is how it enables teams to adapt quickly to changes while maintaining a clear focus on deliverable goals. The regular sprint reviews and retrospectives ensure continuous improvement and stakeholder alignment.</textarea>
+                </div>
+
+                <div class="question-item">
+                    <label for="agile-b">B) Kanban - The Visual Flow System:</label>
+                    <textarea id="agile-b" rows="4" class="methodology-textarea">From my perspective, Kanban's strength lies in its visual approach to workflow management. I find its system of visualizing work items on a board particularly effective for maintaining a smooth, continuous flow of deliverables. What makes Kanban especially valuable is its emphasis on limiting work-in-progress, which helps prevent team overload and ensures focused, quality delivery. The method's flexibility in adapting to changing priorities while maintaining transparency makes it, in my view, ideal for ongoing projects with dynamic requirements.</textarea>
+                </div>
+
+                <div class="question-item">
+                    <label for="agile-c">C) Extreme Programming (XP) - The Quality-Focused Method:</label>
+                    <textarea id="agile-c" rows="4" class="methodology-textarea">In my analysis, Extreme Programming stands out for its unwavering focus on technical excellence and high-quality code delivery. What I find most compelling about XP is its emphasis on engineering practices like pair programming, test-driven development, and continuous integration. The methodology's commitment to frequent releases and close collaboration between developers and customers creates, in my experience, an environment that promotes both code quality and rapid feedback integration. These practices, while demanding, result in robust and maintainable software solutions.</textarea>
+                </div>
+
+                <div class="question-item">
+                    <label for="agile-d">D) Lean - The Efficiency-Driven Framework:</label>
+                    <textarea id="agile-d" rows="4" class="methodology-textarea">From my understanding, Lean development's core strength is its relentless focus on eliminating waste and maximizing value delivery. I particularly appreciate how it emphasizes creating efficient workflows by removing unnecessary processes and focusing on what truly matters to the end user. The methodology's principles of optimizing the whole, empowering the team, and making decisions as late as possible resonate with me as they promote both efficiency and adaptability. This approach, in my view, is especially valuable for organizations seeking to streamline their development process while maintaining high quality standards.</textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- SRH Course Content Section -->
+        <div class="content-card">
+            <h2>My Learning Journey at SRH</h2>
+            <p class="intro-text">
+                Throughout my academic journey in the Software Development and Application course at 
+                <a href="https://www.srh-university.de/" target="_blank">SRH University</a>, 
+                I've gained comprehensive knowledge in various aspects of software development. Here's my personal 
+                reflection on the key areas we explored:
+            </p>
+
+            <div class="question-section">
+                <div class="question-item">
+                    <label for="course-a">a) Software Development Methodologies:</label>
+                    <textarea id="course-a" rows="4" class="methodology-textarea">In my learning experience, understanding various software development methodologies has been crucial. I've gained deep insights into both traditional approaches like Waterfall and modern frameworks like Agile. This knowledge has helped me appreciate how different methodologies can be applied effectively in various project contexts, enhancing my ability to adapt to different development environments.</textarea>
+                </div>
+
+                <div class="question-item">
+                    <label for="course-b">b) Computer Science Fundamentals:</label>
+                    <textarea id="course-b" rows="4" class="methodology-textarea">My journey through computer fundamentals has been enlightening. I've developed a solid understanding of how data and information are processed, stored, and managed. Learning about computer hardware architecture has given me valuable insights into how software interacts with hardware components, which I find essential for efficient programming.</textarea>
+                </div>
+
+                <div class="question-item">
+                    <label for="course-c">c) Programming Concepts and Practice:</label>
+                    <textarea id="course-c" rows="4" class="methodology-textarea">The programming segment of the course has significantly enhanced my technical capabilities. I've mastered fundamental concepts like data types, variables, and control structures. What I find particularly valuable is my improved understanding of advanced topics like arrays, functions, and pointers. These skills have empowered me to write more efficient and maintainable code.</textarea>
+                </div>
+
+                <div class="question-item">
+                    <label for="course-d">d) Data Structures and Organization:</label>
+                    <textarea id="course-d" rows="4" class="methodology-textarea">Exploring data structures has been one of the most fascinating aspects of my learning journey. I've gained practical experience with various structures like linked lists and learned how to implement file operations effectively. This knowledge has enhanced my ability to organize and manage data efficiently in real-world applications.</textarea>
+                </div>
+
+                <div class="question-item">
+                    <label for="course-e">e) Web Development Technologies:</label>
+                    <textarea id="course-e" rows="4" class="methodology-textarea">My exploration of web development has been particularly exciting. I've developed a strong foundation in HTML, CSS, and JavaScript, understanding how these technologies work together to create dynamic web applications. This practical knowledge has enabled me to build interactive and responsive websites, as demonstrated in this current project.</textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- CSS Section -->
+        <div class="content-card">
+            <h2>CSS in Modern Web Development</h2>
+            <p class="intro-text">
+                Through my web development journey, I've extensively used 
+                <a href="https://www.w3schools.com/css/" target="_blank">CSS (Cascading Style Sheets)</a> 
+                to enhance the visual appeal and user experience of web applications. Here's my understanding 
+                of CSS implementation approaches and their significance:
+            </p>
+
+            <div class="question-section">
+                <div class="question-item">
+                    <label for="css-a">a) Inline CSS - Direct Styling:</label>
+                    <textarea id="css-a" rows="4" class="methodology-textarea">From my experience, inline CSS provides immediate styling through the style attribute in HTML elements. While I find it useful for quick prototypes or testing, I've learned that it's best used sparingly. The main drawback I've encountered is that it mixes content with presentation, making maintenance challenging for larger projects. Example: &lt;p style="color: blue; font-size: 16px;"&gt;Text content&lt;/p&gt;</textarea>
+                </div>
+
+                <div class="question-item">
+                    <label for="css-b">b) Internal CSS - Embedded Styling:</label>
+                    <textarea id="css-b" rows="4" class="methodology-textarea">In my development practice, I've found internal CSS useful for single-page websites. By placing styles within &lt;style&gt; tags in the HTML head section, it keeps styles organized within the document. However, I've realized its limitations when working on multi-page sites, as styles can't be reused efficiently across pages. Example: &lt;style&gt; p { color: blue; } &lt;/style&gt;</textarea>
+                </div>
+
+                <div class="question-item">
+                    <label for="css-c">c) External CSS - Separate Stylesheet:</label>
+                    <textarea id="css-c" rows="4" class="methodology-textarea">Through my projects, I've come to strongly prefer external CSS for its maintainability and scalability. By keeping styles in separate .css files, I can manage them more effectively and ensure consistency across multiple pages. I particularly value how it enables browser caching and makes updates easier. Example: &lt;link rel="stylesheet" href="styles.css"&gt;</textarea>
+                </div>
+            </div>
+
+            <p class="intro-text">Based on my development experience, here are the key benefits of using CSS:</p>
+
+            <div class="question-section">
+                <div class="question-item">
+                    <label for="css-reason-1">1. Enhanced Visual Design and Consistency:</label>
+                    <textarea id="css-reason-1" rows="4" class="methodology-textarea">In my web development projects, I've found CSS invaluable for creating visually appealing and consistent designs. It gives me precise control over colors, typography, spacing, and layout, allowing me to maintain a cohesive brand identity across all pages. This consistency significantly improves user experience and professional presentation.</textarea>
+                </div>
+
+                <div class="question-item">
+                    <label for="css-reason-2">2. Responsive Design Implementation:</label>
+                    <textarea id="css-reason-2" rows="4" class="methodology-textarea">One aspect of CSS that I find particularly powerful is its capability for responsive design through media queries. This feature has enabled me to create websites that adapt seamlessly to different screen sizes and devices. From my experience, this adaptability is crucial in today's multi-device world.</textarea>
+                </div>
+
+                <div class="question-item">
+                    <label for="css-reason-3">3. Efficient Maintenance and Scalability:</label>
+                    <textarea id="css-reason-3" rows="4" class="methodology-textarea">Through working on various projects, I've come to appreciate how CSS separates content from presentation. This separation has made my code more maintainable and easier to update. I've found that using a single CSS file to control multiple pages not only saves time but also ensures consistency and reduces code duplication.</textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- JavaScript Section -->
+        <div class="content-card">
+            <h2>JavaScript in Dynamic Web Development</h2>
+            <p class="intro-text">
+                Throughout my web development experience, I've discovered that JavaScript plays a crucial role in creating 
+                interactive and dynamic websites. Here are my insights into its key applications and benefits:
+            </p>
+
+            <div class="question-section">
+                <div class="question-item">
+                    <label for="js-a">a) Dynamic Content Management:</label>
+                    <textarea id="js-a" rows="4" class="methodology-textarea">In my development practice, I've found JavaScript invaluable for creating dynamic user experiences. I particularly appreciate how it enables real-time content updates without page refreshes. For instance, in this project, I've implemented instant error message displays and dynamic country dropdown population, demonstrating JavaScript's power in enhancing user interaction.</textarea>
+                </div>
+
+                <div class="question-item">
+                    <label for="js-b">b) Client-Side Form Validation:</label>
+                    <textarea id="js-b" rows="4" class="methodology-textarea">Through my experience with web forms, I've come to value JavaScript's role in client-side validation immensely. I've implemented it in this project to validate user inputs in real-time, providing immediate feedback and improving user experience. This approach, I've found, not only enhances user interaction but also reduces server load by catching errors early.</textarea>
+                </div>
+
+                <div class="question-item">
+                    <label for="js-c">c) Interactive Event Handling:</label>
+                    <textarea id="js-c" rows="4" class="methodology-textarea">One aspect of JavaScript that I find particularly powerful is its event handling capabilities. In my projects, including this one, I've used it to create responsive interfaces that react to user actions like clicks, keyboard inputs, and form submissions. This interactivity, I've learned, is crucial for creating engaging user experiences.</textarea>
+                </div>
+
+                <div class="question-item">
+                    <label for="js-d">d) DOM Manipulation Expertise:</label>
+                    <textarea id="js-d" rows="4" class="methodology-textarea">Through working with JavaScript, I've gained deep appreciation for its DOM manipulation capabilities. I've learned how to dynamically modify webpage content, update styles, and create new elements on the fly. This skill has been essential in developing responsive and interactive features that enhance user engagement.</textarea>
+                </div>
+
+                <div class="question-item">
+                    <label for="js-e">e) Asynchronous Operations Management:</label>
+                    <textarea id="js-e" rows="4" class="methodology-textarea">In my development journey, I've found JavaScript's handling of asynchronous operations particularly valuable. Whether it's making API calls or handling data loading, I've learned to appreciate how it maintains smooth user experiences while processing background tasks. This capability, I've discovered, is crucial for building modern, responsive web applications.</textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Declaration and Contact Section -->
+        <div class="content-card">
+            <h2>Declaration and Contact</h2>
+            <div class="declaration-section">
+                <p class="declaration-text">
+                    I've done this project myself and accept the consequences if found otherwise.
+                </p>
+            </div>
+
+            <div class="contact-section">
+                <h3>Contact Information</h3>
+                <div class="form-group">
+                    <label for="contact-email">E-mail:</label>
+                    <input type="email" id="contact-email" name="contact-email" value="gourav.jalaneela@stud.srh-university.de" required>
+                    <span class="error-message">Please enter a valid email address</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
